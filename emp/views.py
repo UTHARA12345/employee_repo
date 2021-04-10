@@ -8,7 +8,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 
-class IndexView(ListView):
+class IndexView(LoginRequiredMixin,ListView):
     model = Employee
     template_name = 'employee/index.html'
 
@@ -18,6 +18,7 @@ class EmpAddView(LoginRequiredMixin, CreateView):
     form_class = EmployeeForm
     template_name = 'employee/addemp.html'
     success_url = reverse_lazy('index')
+    context_object_name = "form"
 
 
 class EmpUpdateView(LoginRequiredMixin, UpdateView):

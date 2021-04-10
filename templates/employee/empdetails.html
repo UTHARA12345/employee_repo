@@ -1,31 +1,50 @@
 <!DOCTYPE html>
+
+{% extends 'employee/base.html' %}
+{% block content %}
 {% load static %}
 {% load crispy_forms_tags %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h1>Employee details</h1>
 
-    <table>
+              <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">Employee details</h6>
+    </div>
+        <div class="card-body">
+            <div class="card-body">
+          <div class="table-responsive">
+              <img src="{{details.employee_image.url}}" width="100" height="120">
+            <table class="table table-bordered" id="#" width="100%" cellspacing="0">
+
         <thead>
             <tr>
                 <th>Employee Name</th>
+                <th>Address</th>
                 <th>Email</th>
-                <th>Age</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Status</th>
+
+
             </tr>
         </thead>
         <tbody>
 
             <tr>
                 <th>{{details.employee_name}}</th>
+                <th>{{details.employee_address}}</th>
                 <th>{{details.employee_email}}</th>
-                <th>{{details.employee_age}}</th>
+                <th>{{details.employee_startdate}}</th>
+                <th>{{details.employee_enddate}}</th>
+                <th>{{details.get_status_display}}</th>
             </tr>
 
         </tbody>
     </table>
-</body>
-</html>
+          </div>
+            </div>
+        </div>
+</div>
+<input type=button class="btn btn-outline-warning" style="margin-top: 30px;" value="Back" onClick="javascript:history.go(-1);">
+
+
+{% endblock %}
