@@ -19,7 +19,7 @@
 
             <form method="POST">
                 {% csrf_token %}
-                {{ object.employee_name }}
+                {{ object.employee_name }}<br>
                 <hr>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
